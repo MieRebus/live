@@ -98,42 +98,42 @@
     </div>
 
     <script>
-            const countdownDate = new Date("2025-03-20T16:00:00").getTime();
+        // Countdown Timer
+        const countdownDate = new Date("2025-03-20T16:00:00").getTime(); 
+        
+        const countdownFunction = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
 
-        function updateDisplay() {
-        const now = new Date().getTime();
-        const distance = countdownDate - now;
-
-        if (distance < 0) {
-            // Jika waktu telah berlalu, tampilkan iframe
-            document.getElementById("countdown").innerHTML = "Kami Sudah Siap!";
-            document.title = "Live Streaming Rosikhul.web.id";
-            document.getElementById("coming-soon").style.display = "none";
-            document.getElementById("iframe-container").style.display = "block";
-            localStorage.setItem('eventStatus', 'live');
-        } else {
-            // Jika waktu belum berlalu, tampilkan countdown
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            localStorage.setItem('eventStatus', 'countdown');
-        }
-    }
 
-    // Periksa status dari local storage saat halaman dimuat
-    const eventStatus = localStorage.getItem('eventStatus');
-    if (eventStatus === 'live') {
-        document.getElementById("countdown").innerHTML = "Kami Sudah Siap!";
-        document.title = "Live Streaming Rosikhul.web.id";
-        document.getElementById("coming-soon").style.display = "none";
-        document.getElementById("iframe-container").style.display = "block";
-    } else {
-        updateDisplay();
-        setInterval(updateDisplay, 1000);
-    }
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Kami Sudah Siap!";
+                
+                // Update title
+                document.title = "Live Streaming Rosikhul.web.id"; 
+
+                // Menyembunyikan elemen "Coming Soon" dan menampilkan iframe setelah 1 detik
+                setTimeout(() => {
+                    document.getElementById("coming-soon").style.display = "none";
+                    document.getElementById("iframe-container").style.display = "block";
+                }, 1000); // 1000 milliseconds = 1 second
+            }
+        }, 1000);
+
+        // Memastikan bahwa jika halaman dimuat setelah waktu target, langsung tampilkan iframe
+        if (new Date().getTime() > countdownDate) {
+            document.getElementById("countdown").innerHTML = "Kami Sudah Siap!";
+            document.title = "Live Streaming Rosikhul.web.id"; 
+            document.getElementById("coming-soon").style.display = "none";
+            document.getElementById("iframe-container").style.display = "block";
+        }
     </script>
 </body>
 </html>
