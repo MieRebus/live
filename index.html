@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="MieRebus">
-    <link rel="icon" href="https://live-black.vercel.app/favicon.ico">
+    <link rel="icon" href="https://wedding.rosikhul.web.id/favicon.ico">
     <title>Coming Soon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -19,13 +19,12 @@
             font-family: 'Arial', sans-serif;
             text-align: center;
             position: relative;
-            background-image: url('https://example.com/ramadhan-background.jpg'); /* Ganti dengan URL gambar latar belakang Ramadhan */
-            background-size: cover;
+            overflow: hidden;
         }
         h1 {
             font-size: 4em;
             margin: 0;
-            color: #f39c12; /* Warna emas */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         p {
             font-size: 1.5em;
@@ -34,10 +33,11 @@
         .countdown {
             font-size: 2em;
             margin: 20px 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         .social-icons a {
             margin: 0 10px;
-            color: #f39c12; /* Warna emas */
+            color: #ffffff;
             text-decoration: none;
             font-size: 2em;
         }
@@ -50,6 +50,13 @@
             width: 50px;
             height: 30px;
             margin: 0 10px;
+        }
+        .ramadhan-elements {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 3em;
+            color: #f39c12;
         }
         #iframe-container {
             display: none;
@@ -64,33 +71,69 @@
             height: 100%;
             border: none;
         }
-        .lantern {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 50px;
-            height: 100px;
-            background-image: url('https://example.com/lantern.png'); /* Ganti dengan URL gambar lentera */
-            background-size: contain;
-            animation: swing 2s infinite;
-        }
-        @keyframes swing {
-            0% { transform: rotate(0deg); }
-            50% { transform: rotate(10deg); }
-            100% { transform: rotate(0deg); }
-        }
     </style>
 </head>
 <body>
+    <div class="ramadhan-elements">
+        🌙✨
+    </div>
     <div id="coming-soon">
-        <h1>Selamat Menyambut Ramadhan!</h1>
-        <p>Australia vs Indonesia</p>
+        <h1>Coming Soon!</h1>
+        <p>Myanmar vs Indonesia</p>
         <div class="flags">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/255px-Flag_of_Australia_%28converted%29.svg.png" alt="Bendera Australia" class="flag">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/255px-Flag_of_Myanmar.svg.png" alt="Bendera Myanmar" class="flag">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/255px-Flag_of_Indonesia.svg.png" alt="Bendera Indonesia" class="flag">
         </div>
         <div class="countdown" id="countdown"></div>
         <div class="social-icons">
             <a href="https://facebook.com/ilmi.co.id"><i class="fab fa-facebook-f"></i></a>
             <a href="https://x.com/ilmi_trenz"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/ilmi.r
+            <a href="https://www.instagram.com/ilmi.r.a"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/mierebus"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+
+    <div id="iframe-container">
+        <iframe src="https://live.rosikhul.web.id/live.html"></iframe>
+    </div>
+
+    <script>
+        // Countdown Timer
+        const countdownDate = new Date("2024-12-09T19:15:00").getTime(); 
+        
+        const countdownFunction = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Kami Sudah Siap!";
+                
+                // Update title
+                document.title = "Live Streaming Rosikhul.web.id"; 
+
+                // Menyembunyikan elemen "Coming Soon" dan menampilkan iframe setelah 1 detik
+                setTimeout(() => {
+                    document.getElementById("coming-soon").style.display = "none";
+                    document.getElementById("iframe-container").style.display = "block";
+                }, 1000); // 1000 milliseconds = 1 second
+            }
+        }, 1000);
+
+        // Memastikan bahwa jika halaman dimuat setelah waktu target, langsung tampilkan iframe
+        if (new Date().getTime() > countdownDate) {
+            document.getElementById("countdown").innerHTML = "Kami Sudah Siap!";
+            document.title = "Live Streaming Rosikhul.web.id"; 
+            document.getElementById("coming-soon").style.display = "none";
+            document.getElementById("iframe-container").style.display = "block";
+        }
+    </script>
+</body>
+</html>
