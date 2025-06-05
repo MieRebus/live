@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="MieRebus">
+    <link rel="icon" href="https://live-black.vercel.app/favicon.ico">
+    <title>Live Streaming Rosikhul.web.id</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .flag {
+            width: 30px;
+            height: auto;
+            vertical-align: middle;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .twitch-embed {
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid #27ae60;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        .twitch-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 15px;
+        }
+        .cbox-container {
+            width: 100%;
+            height: 250px;
+            border: 2px solid #27ae60;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .cbox-container iframe {
+            border-radius: 10px;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .ramadan-banner {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            .cbox-container {
+                height: 180px;
+            }
+            .twitch-embed {
+                padding-top: 75%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ramadan-banner">
+        Selamat Hari Raya Idul Adha 🐄🕌
+    </div>
+
+    <h1>Live Streaming Indonesia 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/255px-Flag_of_Indonesia.svg.png" alt="Bendera Indonesia" class="flag"> 
+        vs China 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/330px-Flag_of_the_People%27s_Republic_of_China.svg.png" alt="Bendera China" class="flag">
+    </h1>
+
+    <div class="container">
+        <div class="twitch-embed">
+            <iframe 
+                src="https://www.youtube.com/embed/gIQ5s0hHp_8?autoplay=1" 
+                title="YouTube Live Stream"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="cbox-container">
+            <iframe src="https://www5.cbox.ws/box/?boxid=953521&boxtag=G15BJG" width="100%" height="100%" scrolling="no" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        Built with ❤️ by MieRebus
+    </footer>
+
+</body>
+</html>
